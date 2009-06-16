@@ -277,6 +277,15 @@ describe "Browser" do
       output.should include('Dubito, ergo cogito, ergo sum')
     end
   end
+  
+  describe "#remove_listener" do
+    it "should remove the listener" do
+      @browser.goto(HTML_DIR + "/forms_with_input_elements.html")
+      @browser.add_listener(:confirm) {  }
+      @browser.remove_listener(:confirm) {  }
+      @browser.execute_script("confirm()").should != true
+    end
+  end
 
 
   describe "#confirm" do
