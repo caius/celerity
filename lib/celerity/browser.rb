@@ -527,7 +527,7 @@ module Celerity
     end
 
     def remove_listener(type, &block)
-      listener.remove_listener(type, &block)
+      listener.remove_listener(type, block)
     end
 
     #
